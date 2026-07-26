@@ -5,6 +5,8 @@ import pool from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import authMiddleware from "./middleware/authMiddleware.js";
 import roleMiddleware from "./middleware/roleMiddleware.js";
+import customerRoutes from "./routes/customerRoutes.js"
+import policyRoutes from "./routes/policyRoutes.js";
 dotenv.config();
 
 const app = express();
@@ -13,6 +15,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
+app.use("/api/customers", customerRoutes);
+app.use("/api/policies", policyRoutes);
 
 
 app.get("/", (req, res) => {
